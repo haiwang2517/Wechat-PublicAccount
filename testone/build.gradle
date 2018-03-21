@@ -1,0 +1,46 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.4.RELEASE'
+	}
+	
+	repositories {
+        maven { url 'http://123.207.42.166:8089/nexus/content/groups/public/' }
+         jcenter()
+    }
+    
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+allprojects {
+    repositories {
+        maven { url 'http://123.207.42.166:8089/nexus/content/groups/public/' }
+         jcenter()
+    }
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.clogic.dataanalytics.online'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-web')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	
+	compile('com.alibaba:fastjson:1.2.27')
+	compile('org.apache.httpcomponents:httpclient:4.5.4')
+	
+	compile('com.thoughtworks.xstream:xstream:1.4.10')
+	compile('org.dom4j:dom4j:2.1.0')
+	
+	
+}
